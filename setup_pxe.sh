@@ -63,7 +63,7 @@ default menu
 prompt 0
 timeout 600
 
-MENU PXE setup
+MENU TITLE PXE setup
 
 LABEL linux
   menu label ^Install system
@@ -90,13 +90,13 @@ cp {vmlinuz,initrd.img} /var/lib/tftpboot/pxelinux/images/CentOS-8/
 
 
 # Setup NFS auto install
-# Download ISO image and share via NFS
+# Download ISO image and share it via NFS
 
-curl -O http://ftp.mgts.by/pub/CentOS/8.3.2011/BaseOS/x86_64/os/images/boot.iso
+#curl -O http://ftp.mgts.by/pub/CentOS/8.3.2011/isos/x86_64/CentOS-8.3.2011-x86_64-dvd1.iso
+#mount -t iso9660 CentOS-8.3.2011-x86_64-dvd1.iso /mnt/centos8-install
 
 mkdir /mnt/centos8-install
-#mount -t iso9660 boot.iso /mnt/centos8-install
-mv boot.iso /mnt/centos8-install
+
 echo '/mnt/centos8-install *(ro)' > /etc/exports
 systemctl start nfs-server.service
 systemctl enable nfs-server.service
