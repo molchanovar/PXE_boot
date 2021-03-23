@@ -33,3 +33,12 @@ mount -t iso9660 /dev/sr0 /mnt/centos8-install/
 
 После указанных действий начнется загрузка системы. 
 
+
+#### Шаринг по NFS:
+```
+[root@pxeserver vagrant]# showmount -a 
+All mount points on pxeserver:
+10.0.0.100:/mnt/centos8-install
+```
+
+
